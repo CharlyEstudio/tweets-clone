@@ -36,7 +36,6 @@ pub async fn get_tweets() -> HttpResponse {
 
 #[post("/tweets")]
 pub async fn create_tweet(req_body: String, pool: Data<Pool<ConnectionManager<MysqlConnection>>>) -> HttpResponse {
-    // TODO: Crear tweet
   let new_tweet = Tweet::new(req_body);
   let mut conn = pool.get().expect("could not get database connection");
 
